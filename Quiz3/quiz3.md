@@ -5,6 +5,8 @@ The due date for this quiz is Sun 27 Apr 2014 4:30 PM PDT.
 
 Load packages.
 
+if "jpeg" hasn't been installed,use install.package("jpeg") first
+
 
 ```r
 packages <- c("data.table", "jpeg")
@@ -66,7 +68,7 @@ Use the parameter native=TRUE. What are the 30th and 80th quantiles of the resul
 ```r
 url <- "https://d396qusza40orc.cloudfront.net/getdata%2Fjeff.jpg"
 f <- file.path(getwd(), "jeff.jpg")
-download.file(url, f, mode = "wb")
+download.file(url, f, mode = "wb")    // if error "unsupported URL schame" occurs,use setInternet2(TRUE) to fix it.
 img <- readJPEG(f, native = TRUE)
 quantile(img, probs = c(0.3, 0.8))
 ```
